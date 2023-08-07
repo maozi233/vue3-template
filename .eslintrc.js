@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
-    '@vue/standard'
+    '@vue/standard', // https://github.com/standard/standard/blob/master/docs/RULES-zhcn.md#javascript-standard-style
   ],
   parserOptions: {
     parser: '@babel/eslint-parser'
