@@ -2,6 +2,7 @@
 
 ## Project setup
 ```
+// 如果安装后打开白屏, 用管理员模式打开控制台，执行set-ExecutionPolicy RemoteSigned
 pnpm install
 ```
 
