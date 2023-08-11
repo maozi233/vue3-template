@@ -10,6 +10,9 @@ const routes = [
   {
     path: '/login',
     name: 'login',
+    meta: {
+      keepAlive: true
+    },
     // route level code-splitting
     // this generates a separate chunk (login.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
