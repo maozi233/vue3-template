@@ -1,24 +1,26 @@
 # vue3-template
 
+
 ## Project setup
 ```
-// 如果安装后打开白屏, 用管理员模式打开控制台，执行set-ExecutionPolicy RemoteSigned
-pnpm install
+建议设置淘宝镜像 npm config set registry https://registry.npm.taobao.org
+如果用pnpm安装后打开白屏, 用管理员模式打开控制台，执行set-ExecutionPolicy RemoteSigned
+npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-pnpm run serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
-pnpm run build
+npm run build
 ```
 
 ### Lints and fixes files
 ```
-pnpm run lint
+npm run lint
 ```
 
 ### Customize configuration
