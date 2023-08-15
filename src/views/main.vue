@@ -1,8 +1,8 @@
 <template lang="pug">
 el-container#main-container
   el-aside(width="200px")
-    el-menu(router)
-      side-menu(:routes="routes")
+    el-menu(router id='custom-menu')
+      sideMenu
   el-container
     el-header Header
     el-container
@@ -13,26 +13,24 @@ el-container#main-container
           component(:is="Component" v-if="!$route.meta.keepAlive")
 </template>
 
-<script setup>
-import { ref } from 'vue'
-import router from '@/router'
-
+<script>
 import sideMenu from '@/components/side-menu'
 
-const routes = ref()
-routes.value = router.options.routes
-console.log(routes.value)
-</script>
-
-<script>
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  components: {
+    sideMenu
+  }
 }
 </script>
 
 <style lang="less" scoped>
 #main-container {
   width: 100%;
+  height: 100%;
+}
+
+#custom-menu {
   height: 100%;
 }
 </style>

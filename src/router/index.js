@@ -25,6 +25,25 @@ const routes = [
     ]
   },
   {
+    path: '/orders',
+    meta: {
+      icon: 'Menu',
+      title: '订单管理'
+    },
+    component: main,
+    children: [
+      {
+        path: '/order-list',
+        name: 'orderList',
+        meta: {
+          keepAlive: true,
+          title: '订单列表'
+        },
+        component: () => import(/* webpackChunkName: "welcome-view" */ '@/views/orders/order-list.vue')
+      }
+    ]
+  },
+  {
     path: '/login',
     name: 'loginView',
     meta: {
@@ -35,7 +54,15 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (login.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "login" */ '../views/login-view.vue')
+    component: () => import(/* webpackChunkName: "login" */ '@/views/login-view.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    meta: {
+      hide: true
+    },
+    component: () => import(/* webpackChunkName: "not-found" */ '@/views/not-found.vue')
   }
 ]
 

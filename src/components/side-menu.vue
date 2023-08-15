@@ -14,12 +14,36 @@ template(v-for="menu in routes")
     span {{ menu.meta.title || menu.path }}
 </template>
 
-<script setup>
-import { defineProps } from 'vue'
+<script>
+import router from '@/router'
 
-defineProps({
-  routes: {
-    type: Array
+const getDefaultMenus = () => {
+  const menus = router.options.routes
+
+  const filterMenu = (menus, result = []) => {
+    menus.forEach(route => {
+      if (route?.meta?.hide) {
+        return
+      }
+      result.push(route)
+      if (route.children) {
+        route.children = filterMenu(route.children)
+      }
+    })
+    return result
   }
-})
+
+  const validMenu = filterMenu(menus)
+
+  return validMenu
+}
+
+export default {
+  props: {
+    routes: {
+      type: Array,
+      default: getDefaultMenus
+    }
+  }
+}
 </script>
