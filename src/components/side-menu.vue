@@ -20,14 +20,17 @@ import router from '@/router'
 const getDefaultMenus = () => {
   const menus = router.options.routes
 
-  const filterMenu = (menus, result = []) => {
+  const filterMenu = (menus, result = [], father) => {
     menus.forEach(route => {
       if (route?.meta?.hide) {
         return
       }
+      if (father?.path) {
+        route.path = `${father.path}/${route.path}`
+      }
       result.push(route)
       if (route.children) {
-        route.children = filterMenu(route.children)
+        route.children = filterMenu(route.children, [], route)
       }
     })
     return result

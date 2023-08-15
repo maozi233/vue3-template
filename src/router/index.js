@@ -4,8 +4,7 @@ import main from '../views/main.vue'
 const routes = [
   {
     path: '/',
-    redirect: '/welcome',
-    name: 'welcome',
+    redirect: 'welcome',
     meta: {
       hide: true,
       icon: 'Menu'
@@ -17,7 +16,6 @@ const routes = [
         name: 'welcomeView',
         meta: {
           hide: true,
-          keepAlive: true,
           title: '欢迎'
         },
         component: () => import(/* webpackChunkName: "welcome-view" */ '@/views/other/welcome-view.vue')
@@ -33,13 +31,20 @@ const routes = [
     component: main,
     children: [
       {
-        path: '/order-list',
+        path: 'order-list',
         name: 'orderList',
         meta: {
-          keepAlive: true,
           title: '订单列表'
         },
-        component: () => import(/* webpackChunkName: "welcome-view" */ '@/views/orders/order-list.vue')
+        component: () => import(/* webpackChunkName: "order-list" */ '@/views/orders/order-list.vue')
+      },
+      {
+        path: 'order-detail',
+        name: 'orderDetail',
+        meta: {
+          title: '订单详情'
+        },
+        component: () => import(/* webpackChunkName: "order-detail" */ '@/views/orders/order-detail.vue')
       }
     ]
   },
@@ -48,7 +53,6 @@ const routes = [
     name: 'loginView',
     meta: {
       hide: true,
-      keepAlive: true,
       title: '登录'
     },
     // route level code-splitting

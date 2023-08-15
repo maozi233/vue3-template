@@ -15,9 +15,3 @@ onMounted(() => {
 })
 
 </script>
-
-<script>
-export default {
-  name: 'welcome-view'
-}
-</script>
