@@ -1,13 +1,14 @@
 <template lang="pug">
 el-container#main-container
-  el-header Header
+  el-aside.menu-wrapper(width="200px")
+    div.menu-title 后台管理
+    el-menu(
+      id='custom-menu'
+      router
+    )
+      sideMenu
   el-container
-    el-aside(width="200px")
-      el-menu(
-        id='custom-menu'
-        router
-      )
-        sideMenu
+    el-header Header
     el-container
       el-main
         router-view(v-slot="{ Component }")
@@ -38,5 +39,18 @@ export default {
 
 #custom-menu {
   height: 100%;
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-title {
+  background: #409EFF;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 24px;
+  padding: 10px;
+  height: 50px;
 }
 </style>

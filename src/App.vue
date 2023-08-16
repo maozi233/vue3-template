@@ -19,3 +19,9 @@ body,
   margin: 0;
 }
 </style>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+</style>
