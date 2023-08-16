@@ -15,10 +15,11 @@ template(v-for="menu in routes")
 </template>
 
 <script>
-import router from '@/router'
+import { routes } from '@/router'
+import { deepClone } from '@/utils'
 
 const getDefaultMenus = () => {
-  const menus = router.options.routes
+  const menus = deepClone(routes)
 
   const filterMenu = (menus, result = [], father) => {
     menus.forEach(route => {

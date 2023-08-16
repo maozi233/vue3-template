@@ -1,19 +1,19 @@
 <template lang="pug">
 el-container#main-container
-  el-aside(width="200px")
-    el-menu(
-      id='custom-menu'
-      router
-    )
-      sideMenu
+  el-header Header
   el-container
-    el-header Header
+    el-aside(width="200px")
+      el-menu(
+        id='custom-menu'
+        router
+      )
+        sideMenu
     el-container
       el-main
         router-view(v-slot="{ Component }")
           keep-alive
-            component(:is="Component" :key="$route.path" v-if="!$route.meta.noCahce")
-          component(:is="Component" :key="$route.path" v-if="$route.meta.noCahce")
+            component(:is="Component" :key="$route.path" v-if="$route.meta.cache")
+          component(:is="Component" :key="$route.path" v-if="!$route.meta.cahce")
 </template>
 
 <script>
